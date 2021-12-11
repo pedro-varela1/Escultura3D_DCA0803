@@ -8,7 +8,7 @@ OFF
 -0.5 -0.5 0.5
 0.5 -0.5 0.5
 0.5 0.5 0.5
-4 0 3 2 1 1.0 1.0 1.0 0.0  // Nfaces, Indices dos Vertices que formam as faces e (Red Green Blue Transparencia)
+4 0 3 2 1 1.0 1.0 1.0 0.0  // Nfaces, Indices dos Vertices que formam as faces e (Red Green Blue Transparencia). Ordem define o lado iluminafo da face (mão direita)
 4 4 5 6 7 1.0 1.0 1.0 0.0
 4 0 1 5 4 1.0 1.0 1.0 0.0
 4 0 4 7 3 1.0 1.0 1.0 0.0
