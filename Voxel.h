@@ -1,5 +1,5 @@
-#ifndef VOXEL_H_INCLUDED
-#define VOXEL_H_INCLUDED
+#ifndef VOXEL_H
+#define VOXEL_H
 
 using namespace std;
 
@@ -9,4 +9,4 @@ struct Voxel {
   bool isOn; // Included or not
 };
 
-#endif // VOXEL_H_INCLUDED
+#endif // VOXEL_H

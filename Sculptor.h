@@ -1,5 +1,6 @@
-#ifndef SCULPTOR_H_INCLUDED
-#define SCULPTOR_H_INCLUDED
+#ifndef SCULPTOR_H
+#define SCULPTOR_H
+
 #include "Voxel.h"
 
 class Sculptor{
@@ -7,6 +8,10 @@ private:
   Voxel ***m; // 3D matrix
   int nx,ny,nz; // Dimensions of a cube
   float r,g,b; // Current drawing color
+  float a; // Transparency
+  float lado;
+  float delta;
+  int i, j, k, x,y,z;  // Auxiliary variables
 
 public:
   Sculptor(int _nx=1, int _ny=1, int _nz=1);
@@ -21,10 +26,10 @@ public:
 
   void putEllipsoid (int x0, int y0, int z0, int rx, int ry, int rz);
   void cutEllipsoid (int x0, int y0, int z0, int rx, int ry, int rz);
-  
+
   void putSphere (int x0, int y0, int z0, int rr);
   void cutSphere (int x0, int y0, int z0, int rr);
-  
+
   void putVoxel(int x0, int y0, int z0);
   void cutVoxel(int x0, int y0, int z0);
 
@@ -33,4 +38,4 @@ public:
 
 };
 
-#endif // SCULPTOR_H_INCLUDED
+#endif // SCULPTOR_H
