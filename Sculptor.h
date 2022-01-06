@@ -9,9 +9,8 @@ private:
   int nx,ny,nz; // Dimensions of a cube
   float r,g,b; // Current drawing color
   float a; // Transparency
-  float lado;
-  float delta;
-  int i, j, k, x,y,z;  // Auxiliary variables
+  float lado; // Auxiliary variables
+  int i, j, k, x,y,z;
 
 public:
   Sculptor(int _nx=1, int _ny=1, int _nz=1);
@@ -33,9 +32,9 @@ public:
   void putVoxel(int x0, int y0, int z0);
   void cutVoxel(int x0, int y0, int z0);
 
-  void limpaVoxels(void);
   void writeOFF(char* v);
 
 };
 
 #endif // SCULPTOR_H
+
