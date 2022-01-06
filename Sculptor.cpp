@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <queue>
 #include "Sculptor.h"
 #include "Voxel.h"
 
