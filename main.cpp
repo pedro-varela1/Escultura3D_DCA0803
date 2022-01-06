@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <queue>
 #include <iomanip>
 #include "Sculptor.h"
 #include "Voxel.h"
@@ -8,7 +7,7 @@
 int main(void){
     Sculptor SM(80,80,80);
 
-    // Cabeça do spiderman
+    // CabeÃ§a do spiderman
     SM.setColor(1.0,0,0,0);
     SM.putEllipsoid(40,60,20,10,7,5);
 
@@ -56,11 +55,11 @@ int main(void){
     SM.putVoxel(42,44,24);
     SM.putBox(37,44,46,47,24,25);
 
-    //Braços do spiderman
+    //BraÃ§os do spiderman
     SM.setColor(0,0,1.0,0);
     SM.putBox(25,30,35,52,17,23);
     SM.putBox(50,55,35,52,17,23);
-    //Detalhes do braço
+    //Detalhes do braÃ§o
     SM.setColor(1.0,0,0,0);
     SM.putBox(25,30,48,52,17,23);
     SM.putBox(50,55,48,52,17,23);
