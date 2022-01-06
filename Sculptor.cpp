@@ -10,8 +10,7 @@ using namespace std;
 Sculptor::Sculptor(int _nx, int _ny, int _nz){
     nx = _nx; ny = _ny; nz = _nz;
     r = g = b = a = 0.5;
-    delta = 0;
-    lado = 0.5 - delta;
+    lado = 0.5;
     alocar();
 }
 
@@ -107,7 +106,7 @@ void Sculptor::setColor(float _r, float _g, float _b, float _a){
             r2 = (double)(j-y0)*(double)(j-y0)/(ry*ry);
             r3 = ((double)(k-z0)*(double)(k-z0))/(rz*rz);
         if(r1 + r2 + r3 < 1){
-  // se os parametros obedecerem a equação da elipsoide, o voxel é ativado (nos limites da elipsoide e preenchendo dentro)
+  // se os parametros obedecerem a equaÑ‡Ñƒo da elipsoide, o voxel Ñ‰ ativado (nos limites da elipsoide e preenchendo dentro)
             m[i][j][k].isOn = true;
             m[i][j][k].r=r;
             m[i][j][k].g=g;
@@ -175,23 +174,6 @@ void Sculptor::setColor(float _r, float _g, float _b, float _a){
     }
     }
 
-  void Sculptor::limpaVoxels(void) {
-  queue<int> q;
-  int lx, ly, lz;
-  for (x = 1; x < nx - 1; x++) {
-    for (y = 1; y < ny - 1; y++) {
-      for (z = 1; z < nz - 1; z++) {
-        if ((m[x][y][z].isOn == true) && (m[x + 1][y][z].isOn == true) &&
-            (m[x - 1][y][z].isOn == true) && (m[x][y + 1][z].isOn == true) &&
-            (m[x][y - 1][z].isOn == true) && (m[x][y][z + 1].isOn == true) &&
-            (m[x][y][z - 1].isOn == true)) {
-          q.push(x);
-          q.push(y);
-        }
-      }
-    }
-   }
-  }
 // Para escrever no arquivo, temos:
     void Sculptor::writeOFF(char *filename){
         int v_f, ponto;
@@ -202,7 +184,7 @@ void Sculptor::setColor(float _r, float _g, float _b, float _a){
         for(x = 0; x < nx; x++){
          for(y = 0; y < ny; y++){
           for(z = 0; z < nz; z++){
-            if(m[x][y][z].isOn == true){ //ligar os voxels
+            if(m[x][y][z].isOn == true){
                 v_f++; // contabiliza os voxels ligados
             }
          }
@@ -236,17 +218,17 @@ void Sculptor::setColor(float _r, float _g, float _b, float _a){
             arq << fixed;
 
             arq << 4 << " " << ponto + 0 << " " << ponto + 3 << " " << ponto + 2 << " " << ponto + 1 << " ";
-            arq << setprecision(2) << m[x][y][z].r << " " << setprecision(2) << m[x][y][z].g << " " << setprecision(2) << m[x][y][z].b << " " <<setprecision(2) << m[x][y][z].a << "\n" << flush;
+            arq << setprecision(1) << m[x][y][z].r << " " << setprecision(1) << m[x][y][z].g << " " << setprecision(1) << m[x][y][z].b << " " <<setprecision(1) << m[x][y][z].a << "\n" << flush;
             arq << 4 << " " << ponto + 4 << " " << ponto + 5 << " " << ponto + 6 << " " << ponto + 7 << " ";
-            arq << setprecision(2) << m[x][y][z].r << " " << setprecision(2) << m[x][y][z].g << " " << setprecision(2) << m[x][y][z].b << " " <<setprecision(2) << m[x][y][z].a << "\n" << flush;
+            arq << setprecision(1) << m[x][y][z].r << " " << setprecision(1) << m[x][y][z].g << " " << setprecision(1) << m[x][y][z].b << " " <<setprecision(1) << m[x][y][z].a << "\n" << flush;
             arq << 4 << " " << ponto + 0 << " " << ponto + 1 << " " << ponto + 5 << " " << ponto + 4 << " ";
-            arq << setprecision(2) << m[x][y][z].r << " " << setprecision(2) << m[x][y][z].g << " " << setprecision(2) << m[x][y][z].b << " " <<setprecision(2) << m[x][y][z].a << "\n" << flush;
+            arq << setprecision(1) << m[x][y][z].r << " " << setprecision(1) << m[x][y][z].g << " " << setprecision(1) << m[x][y][z].b << " " <<setprecision(1) << m[x][y][z].a << "\n" << flush;
             arq << 4 << " " << ponto + 0 << " " << ponto + 4 << " " << ponto + 7 << " " << ponto + 3 << " ";
-            arq << setprecision(2) << m[x][y][z].r << " " << setprecision(2) << m[x][y][z].g << " " << setprecision(2) << m[x][y][z].b << " " <<setprecision(2) << m[x][y][z].a << "\n" << flush;
+            arq << setprecision(1) << m[x][y][z].r << " " << setprecision(1) << m[x][y][z].g << " " << setprecision(1) << m[x][y][z].b << " " <<setprecision(1) << m[x][y][z].a << "\n" << flush;
             arq << 4 << " " << ponto + 7 << " " << ponto + 6 << " " << ponto + 2 << " " << ponto + 3 << " ";
-            arq << setprecision(2) << m[x][y][z].r << " " << setprecision(2) << m[x][y][z].g << " " << setprecision(2) << m[x][y][z].b << " " <<setprecision(2) << m[x][y][z].a << "\n" << flush;
+            arq << setprecision(1) << m[x][y][z].r << " " << setprecision(1) << m[x][y][z].g << " " << setprecision(1) << m[x][y][z].b << " " <<setprecision(1) << m[x][y][z].a << "\n" << flush;
             arq << 4 << " " << ponto + 1 << " " << ponto + 2 << " " << ponto + 6 << " " << ponto + 5 << " ";
-            arq << setprecision(2) << m[x][y][z].r << " " << setprecision(2) << m[x][y][z].g << " " << setprecision(2) << m[x][y][z].b << " " <<setprecision(2) << m[x][y][z].a << "\n" << flush;
+            arq << setprecision(1) << m[x][y][z].r << " " << setprecision(1) << m[x][y][z].g << " " << setprecision(1) << m[x][y][z].b << " " <<setprecision(1) << m[x][y][z].a << "\n" << flush;
 
             v_f++;
          }
