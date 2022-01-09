@@ -189,7 +189,7 @@ void Sculptor::setColor(float _r, float _g, float _b, float _a){
          }
          }
          }
-         arq << v_f*8 << " " << v_f*6 << " " << "0\n"; //cria um cubo de vertices e faces proporcional a quantidade de voxels
+         arq << v_f*8 << " " << v_f*6 << " " << "0\n";
 
          for(x = 0; x < nx; x++){
           for(y = 0; y < ny; y++){
